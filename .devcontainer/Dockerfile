@@ -8,4 +8,8 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/* \
     && useradd -m -s /usr/bin/bash ${USER} \
     && echo "${USER} ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/${USER} \
-    && chmod 0440 /etc/sudoers.d/${USER}
+    && chmod 0440 /etc/sudoers.d/${USER} \
+    && apt-get install -y nodejs npm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
